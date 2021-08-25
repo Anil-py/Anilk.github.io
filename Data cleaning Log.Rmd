@@ -21,22 +21,23 @@ and rows where they are same which seems to be irrelevant to analysis.
 Since the count of such rows are very less as compared to total rows 
 in data these rows have been removed from database and will not be 
 considered in further analysis
+    
     DELETE FROM tripdata 
     WHERE started_at > ended_at OR started_at = ended_at;
                     
 Columns rideable_type, member_casual were checked for any typo errors 
 using DISTICT function.
 
+Total rows remaining after the cleaning process : 4159132
+
 SELECT COUNT(*)
 FROM tripdata
 
-Total rows remaining after the cleaning process : 4159132
 
-
-My initial plan was to do basic cleaning using spreadsheet but after doing this 
+-----My initial plan was to do basic cleaning using spreadsheet but after doing this 
 for one month data I realised it would be a time consuming activity as spreadsheet 
 could not handle entire dataset in single sheet hence decided to combine all the 
-data in single csv file and using SQL for cleaning.
+data in single csv file and using SQL for cleaning------------
 
 
 ### Manipulation
@@ -94,6 +95,8 @@ CREATE TABLE tripdata_summary AS
 trip_duration_cat, month_started_at, rider_type, COUNT(*) 
 FROM tripdata
 GROUP BY 1, 2, 3, 4, 5, 6, 7)
+
+Tableu public and spreadsheet was used for visualisation.
 
 
 
