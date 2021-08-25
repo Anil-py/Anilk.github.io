@@ -1,6 +1,6 @@
 ## Data cleaning and manipulation log
 
-### cleaning
+### Cleaning
 
 Past 12 month data was made available in separate csv file 
 for each month. The data was combined to form a single csv 
