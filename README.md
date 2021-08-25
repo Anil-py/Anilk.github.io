@@ -12,6 +12,14 @@ The project is categorised into six data analysis process: ask, prepare, process
 
 How do annual members and casual riders use Cyclistic bikes differently?
 
+### Prepare :
+
+The data was made available as csv file for individual month (past 12 month data was used)
+
+The data for each month was combined to create a single dataset using R and exported as csv file for cleaning using SQL.
+
+
+
 
 
 
