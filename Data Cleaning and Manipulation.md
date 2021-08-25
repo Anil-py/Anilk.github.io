@@ -96,10 +96,5 @@ A summary table was created to use for visualisation
     FROM tripdata
     GROUP BY 1, 2, 3, 4, 5, 6, 7)
 
-Tableu public and spreadsheet was used for visualisation.
-
-
-
-
-
+Tableu public and spreadsheet were used for visualisation.
 
