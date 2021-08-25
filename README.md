@@ -1,6 +1,6 @@
 # Case Study: How Does a Bike-Share Navigate Speedy Success?
 
-This is a capstone roject for Google Data Analytics Certification.
+This is a capstone project for Google Data Analytics Certification.
 
 This project uses public data available under this [licence](https://www.divvybikes.com/data-license-agreement)
 
