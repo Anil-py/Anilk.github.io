@@ -26,7 +26,7 @@ considered in further analysis
     WHERE started_at > ended_at OR started_at = ended_at;
                     
 Columns rideable_type, member_casual were checked for any typo errors 
-using DISTICT function.
+using DISTINCT function.
 
 Total rows remaining after the cleaning process : 4159132
 
