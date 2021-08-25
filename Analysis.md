@@ -20,6 +20,27 @@ Maximum trip duration by rider type
 "member" :	"23 days 05:01:22"
 
 
+Number of each rider type
+
+    SELECT rider_type, COUNT(*)
+    FROM tripdata
+    GROUP BY rider_type
+    
+    
+"casual" :	1826043
+"member" :	2333089
+
+
+Number of rideable types
+
+    SELECT rideable_type, COUNT(*)
+    FROM tripdata
+    GROUP BY rideable_type
+    
+  "classic_bike" :	1780342
+  "docked_bike" :	1547791
+  "electric_bike" :	830999
+
 A summary table was created for visualisation purpose
 
     CREATE TABLE tripdata_summary AS
