@@ -10,10 +10,10 @@ The project is categorised into six data analysis process: ask, prepare, process
 
 Tools used :
 
-###R
-###SQL
-###Spreadsheet
-###Tableau Public
+### R
+### SQL
+### Spreadsheet
+### Tableau Public
 
 
 
