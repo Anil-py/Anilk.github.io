@@ -1,4 +1,4 @@
-## Data cleaning and manipulationlog
+## Data cleaning and manipulation log
 
 ### cleaning
 
