@@ -6,8 +6,8 @@ Average trip duration by rider type
     GROUP BY rider_type
     
     
-"casual"	"00:37:34.324499"
-"member"	"00:14:23.432426"
+"casual" :	"00:37:34.324499"
+"member" :  "00:14:23.432426"
 
 
 Maximum trip duration by rider type
@@ -16,8 +16,8 @@ Maximum trip duration by rider type
     FROM tripdata
     GROUP BY rider_type
     
-"casual"	"38 days 20:24:09"
-"member"	"23 days 05:01:22"
+"casual" :	"38 days 20:24:09"
+"member" :	"23 days 05:01:22"
 
 
 A summary table was created for visualisation purpose
