@@ -30,14 +30,14 @@ using DISTICT function.
 
 Total rows remaining after the cleaning process : 4159132
 
-SELECT COUNT(*)
-FROM tripdata
+    SELECT COUNT(*)
+    FROM tripdata
 
 
------My initial plan was to do basic cleaning using spreadsheet but after doing this 
-for one month data I realised it would be a time consuming activity as spreadsheet 
-could not handle entire dataset in single sheet hence decided to combine all the 
-data in single csv file and using SQL for cleaning------------
+----------My initial plan was to do basic cleaning using spreadsheet but after 
+doing this for one month data I realised it would be a time consuming activity 
+as spreadsheet could not handle entire dataset in single sheet hence decided to 
+combine all the data in single csv file and use SQL for cleaning----------------
 
 
 ### Manipulation
@@ -46,21 +46,21 @@ member_casual was renamed to rider_type
 
 New column trip_duration, day_of_week, month_started_at were created
 
-ALTER TABLE tripdata
-ADD COLUMN trip_duration INTERVAL, 
-ADD COLUMN day_of_week VARCHHAR,
-ADD COLUMN month_started_at VARCHAR
+    ALTER TABLE tripdata
+    ADD COLUMN trip_duration INTERVAL, 
+    ADD COLUMN day_of_week VARCHHAR,
+    ADD COLUMN month_started_at VARCHAR
 
-UPDATE tripdata
-SET trip_duration = ended_at - started_at
+    UPDATE tripdata
+    SET trip_duration = ended_at - started_at
 
-UPDATE tripdata
-SET day_of_week = 
-EXTRACT(dow FROM tripdata.started_at)
-
-UPDATE tripdata
-SET month_started_at = 
-EXTRACT(MONTH FROM tripdata.started_at)
+    UPDATE tripdata
+    SET day_of_week = 
+    EXTRACT(dow FROM tripdata.started_at)
+    
+    UPDATE tripdata
+    SET month_started_at = 
+    EXTRACT(MONTH FROM tripdata.started_at)
 
 
 A new column trip_duration_cat was created to categorise trip_duration column in limited range
@@ -68,33 +68,33 @@ This was done so that it can be used in GROUP BY clause to summarise into limite
 number of intervals.
 
 
-UPDATE tripdata
-SET trip_duration_cat =
-(CASE
-WHEN trip_duration <= '00:15:00' THEN  '<=15 min'
-WHEN trip_duration > '00:15:00' and trip_duration <= '00:30:00' THEN '15 - 30 min'
-WHEN trip_duration > '00:30:00' and trip_duration <= '00:45:00' THEN '30 - 45 min'
-WHEN trip_duration > '00:45:00' and trip_duration <= '01:00:00' THEN '45 - 60 min'
-WHEN trip_duration > '01:00:00' and trip_duration <= '01:30:00' THEN '60 - 90 min'
-WHEN trip_duration > '01:30:00' and trip_duration <= '02:00:00' THEN '90 - 120 min'
-WHEN trip_duration > '02:00:00' and trip_duration <= '24:00:00' THEN '02 - 24 hrs'
-WHEN trip_duration > '24:00:00' and trip_duration <= '2 days 00:00:00' THEN '1 - 2 day'
-WHEN trip_duration > '2 days 00:00:00' and trip_duration <= '5 days 00:00:00' THEN '2 - 5 day'
-WHEN trip_duration > '5 days 00:00:00' and trip_duration <= '7 days 00:00:00' THEN '1 week'
-WHEN trip_duration > '7 days 00:00:00' and trip_duration <= '14 days 00:00:00' THEN '2 weeks'
-WHEN trip_duration > '14 days 00:00:00' and trip_duration <= '21 days 00:00:00' THEN '3 weeks'
-WHEN trip_duration > '21 days 00:00:00' and trip_duration <= '30 days 00:00:00' THEN '4 weeks'
-WHEN trip_duration > '30 days 00:00:00' THEN 'more than a month' 
-END)
+    UPDATE tripdata
+    SET trip_duration_cat =
+    (CASE
+    WHEN trip_duration <= '00:15:00' THEN  '<=15 min'
+    WHEN trip_duration > '00:15:00' and trip_duration <= '00:30:00' THEN '15 - 30 min'
+    WHEN trip_duration > '00:30:00' and trip_duration <= '00:45:00' THEN '30 - 45 min'
+    WHEN trip_duration > '00:45:00' and trip_duration <= '01:00:00' THEN '45 - 60 min'
+    WHEN trip_duration > '01:00:00' and trip_duration <= '01:30:00' THEN '60 - 90 min'
+    WHEN trip_duration > '01:30:00' and trip_duration <= '02:00:00' THEN '90 - 120 min'
+    WHEN trip_duration > '02:00:00' and trip_duration <= '24:00:00' THEN '02 - 24 hrs'
+    WHEN trip_duration > '24:00:00' and trip_duration <= '2 days 00:00:00' THEN '1 - 2 day'
+    WHEN trip_duration > '2 days 00:00:00' and trip_duration <= '5 days 00:00:00' THEN '2 - 5 day'
+    WHEN trip_duration > '5 days 00:00:00' and trip_duration <= '7 days 00:00:00' THEN '1 week'
+    WHEN trip_duration > '7 days 00:00:00' and trip_duration <= '14 days 00:00:00' THEN '2 weeks'
+    WHEN trip_duration > '14 days 00:00:00' and trip_duration <= '21 days 00:00:00' THEN '3 weeks'
+    WHEN trip_duration > '21 days 00:00:00' and trip_duration <= '30 days 00:00:00' THEN '4 weeks'
+    WHEN trip_duration > '30 days 00:00:00' THEN 'more than a month' 
+    END)
 
 
 A summary table was created to use for visualisation
 
-CREATE TABLE tripdata_summary AS
-(SELECT rideable_type, start_station_name, end_station_name, day_of_week,
-trip_duration_cat, month_started_at, rider_type, COUNT(*) 
-FROM tripdata
-GROUP BY 1, 2, 3, 4, 5, 6, 7)
+    CREATE TABLE tripdata_summary AS
+    (SELECT rideable_type, start_station_name, end_station_name, day_of_week,
+    trip_duration_cat, month_started_at, rider_type, COUNT(*) 
+    FROM tripdata
+    GROUP BY 1, 2, 3, 4, 5, 6, 7)
 
 Tableu public and spreadsheet was used for visualisation.
 
