@@ -2,7 +2,7 @@
 
 ### cleaning
 
-•	Past 12 month data was made available in separate csv file 
+Past 12 month data was made available in separate csv file 
 for each month. The data was combined to form a single csv 
 file and imported to SQL (pgAdmin)
 The data had many rows with null values and these were removed.
@@ -11,7 +11,7 @@ New table created by removing rows with null values
     CREATE TABLE tripdata AS 
     SELECT * FROM tripdata_master WHERE tripdata IS NOT NULL;
 
-•	There are rows where trip start time is greater than trip end time, 
+There are rows where trip start time is greater than trip end time, 
 and rows where they are same which seems to be irrelevant to analysis.
 
     SELECT COUNT (*) 
