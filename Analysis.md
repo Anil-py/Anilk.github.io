@@ -65,6 +65,19 @@ Number of rideable types
   "electric_bike" :	830999
   
 
+Number of rides by rider_type and rideable_type
+
+    SELECT rider_type, rideable_type,COUNT(*)
+    FROM tripdata
+    GROUP BY 1,2
+    
+"casual"	"classic_bike"	692369
+"casual"	"docked_bike"	756821
+"casual"	"electric_bike"	376853
+"member"	"classic_bike"	1087973
+"member"	"docked_bike"	790970
+"member"	"electric_bike"	454146
+  
 
 A summary table was created for visualisation purpose
 
