@@ -70,13 +70,14 @@ Number of rides by rider_type and rideable_type
     SELECT rider_type, rideable_type,COUNT(*)
     FROM tripdata
     GROUP BY 1,2
+    ORDER BY 3 DESC
     
-"casual"	"classic_bike"	692369
-"casual"	"docked_bike"	756821
-"casual"	"electric_bike"	376853
 "member"	"classic_bike"	1087973
 "member"	"docked_bike"	790970
+"casual"	"docked_bike"	756821
+"casual"	"classic_bike"	692369
 "member"	"electric_bike"	454146
+"casual"	"electric_bike"	376853
   
 
 A summary table was created for visualisation purpose
