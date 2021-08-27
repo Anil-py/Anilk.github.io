@@ -1,5 +1,3 @@
-## Data cleaning and manipulation log
-
 ### Cleaning
 
 Past 12 month data was made available in separate csv file 
