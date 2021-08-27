@@ -86,7 +86,7 @@
                       geom_col(position = 'dodge')
 
 
-tripdata %>% mutate(weekday = wday(started_at, label = T)) %>% 
+    tripdata %>% mutate(weekday = wday(started_at, label = T)) %>% 
     group_by(rider_type,weekday) %>% 
     summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>% 
     arrange(rider_type, weekday) %>% 
