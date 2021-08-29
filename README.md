@@ -9,7 +9,7 @@ The dataset is of a fictional company named as Cyclistic. Data for last 12 month
 
 #### Business task :
  
-How do annual members and casual riders use Cyclistic bikes differently?
+To undestand how do annual members and casual riders use Cyclistic bikes differently?
 
 #### Tools used :
 
