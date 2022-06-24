@@ -7,14 +7,14 @@ The data had many rows with null values and these were removed.
 New table created by removing rows with null values 
         
     CREATE TABLE tripdata AS 
-    SELECT * FROM tripdata_master WHERE tripdata IS NOT NULL;
+    SELECT * FROM tripdata_master WHERE tripdata_master IS NOT NULL;
 
 There are rows where trip start time is greater than trip end time, 
 and rows where they are same which seems to be irrelevant to analysis.
 
     SELECT COUNT (*) 
     FROM tripdata
-    WHERE started_at > ended_at OR started_at = ended_at;
+    WHERE started_at >= ended_at;
 
 Since the count of such rows are very less as compared to total rows 
 in data these rows have been removed from database and will not be 
