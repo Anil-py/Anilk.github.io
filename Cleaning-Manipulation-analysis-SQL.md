@@ -21,7 +21,7 @@ in data these rows have been removed from database and will not be
 considered in further analysis
     
     DELETE FROM tripdata 
-    WHERE started_at > ended_at OR started_at = ended_at;
+    WHERE started_at >= ended_at;
                     
 Columns rideable_type, member_casual were checked for any typo errors 
 using DISTINCT function.
